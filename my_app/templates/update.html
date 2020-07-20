@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% import 'bootstrap/wtf.html' as wtf %}
+{% block body %}
+{% for category,message in get_flashed_messages(with_categories=True) %}
+    <div class="alert alert-{{category}}">
+        <strong>{{category|capitalize}}!</strong> {{message}}
+    </div>
+{% endfor %}
+<div class="col-md-4 col-lg-offset-4">
+{{wtf.quick_form(form)}}
+<br>
+{% if disp == True %}
+    <button  class="btn" style="background-color: #FF0000; color: azure;"><a href="/forgot_password" style="color: azure;">Forgot Password</a></button>
+{% endif %}
+</div>
+{% endblock %}

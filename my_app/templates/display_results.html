@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block body %}
+  <h2 style="text-align: center;">SEM-{{sem}}</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Subject Code</th>
+            <th>Grade Awarded</th>
+            <th>Credits</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for row in sem_list %}
+        <tr>
+            <td>{{row[0]}}</td>
+            <td>{{row[1]}}</td>
+            <td>{{row[2]}}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<hr>
+<h4 style="text-align: center;">SPI={{spi}}</h4>
+<h4 style="text-align: center;">CPI={{cpi}}</h4>
+{% endblock %}

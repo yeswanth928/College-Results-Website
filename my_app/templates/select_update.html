@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block body %}
+{% for category,message in get_flashed_messages(with_categories=True) %}
+    <div class="alert alert-{{category}}">
+        <strong>{{category|capitalize}}!</strong> {{message}}
+    </div>
+{% endfor %}
+<h2 style="text-align: center;">Update Your Contact Details</h2>
+<a href="/update_mail" class="btn btn-primary btn-lg btn-block">Update Your Mail</a><br>
+<a href="/update_phone" class="btn btn-primary btn-lg btn-block">Update Phone Number</a><br>
+<a href="/update_password" class="btn btn-primary btn-lg btn-block">Update Password</a><br>
+<a href="/update_pic" class="btn btn-primary btn-lg btn-block">Update Profile Pic</a><br>
+{% endblock %}

@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block body %}
+<h1 style="text-align: center;">Profile</h1>
+<div style="max-width: 200px; display: block; margin-left: auto;margin-right: auto;" >
+<img src="{{user_image}}" class="img-thumbnail" >
+</div>
+<div class="text-center container" style="text-align: center;">
+    <table class="table" style="border-collapse: collapse; text-align: left; margin-left: auto; margin-right: auto; max-width: 400px;">
+            <tr>
+                <td>Name</td>
+                <td>{{name}}</td>
+            </tr>
+            <tr>
+                <td>Registration No &nbsp; &nbsp; </td>
+                <td>{{reg}}</td>
+            </tr>
+            <tr>
+                <td>Branch</td>
+                <td>{{branch}}</td>
+            </tr>
+            {% if not session['admin'] %}
+            <tr>
+                <td>Sem</td>
+                <td>{{sem}}</td>
+            </tr>
+            {% endif %}
+            <tr>
+                <td>DOB</td>
+                <td>{{DOB}}</td>
+            </tr>
+            <tr>
+                <td>Father's Name</td>
+                <td>{{father}}</td>
+            </tr>
+            <tr>
+                <td>Mail Id</td>
+                <td>{{mail}}</td>
+            </tr>
+            <tr>
+                <td>Phone No</td>
+                <td>{{phone}}</td>
+            </tr>
+    </table>
+{% if session['admin'] %}
+<a href="/select_db_details" class="btn btn-group-sm btn-success">Update details</a>
+{% endif %}
+</div>
+{% endblock %}

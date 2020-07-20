@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% import 'bootstrap/wtf.html' as wtf %}
+{% block body %}
+{% for category,message in get_flashed_messages(with_categories=True) %}
+    <div class="alert alert-{{category}}">
+        <strong>{{category|capitalize}}!</strong> {{message}}
+    </div>
+{% endfor %}
+<div class="col-md-4 col-lg-offset-4">
+{{wtf.quick_form(form)}}
+</div>
+{% endblock %}

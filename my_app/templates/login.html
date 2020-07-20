@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    </head>
+    <body style="background: #00F260;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #0575E6, #00F260);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #0575E6, #00F260); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    ">
+       <h1 style="text-align: center;">My College Results Site</h1> 
+       {% for category,message in get_flashed_messages(with_categories=True) %}
+        <div class="alert alert-{{category}}">
+           <strong>{{category|capitalize}}!</strong> {{message}}
+        </div>
+        {% endfor %}
+        {% import 'bootstrap/wtf.html' as wtf %}
+        <div style="text-align: center;align-items: center;">
+            <div style="display: inline-block;max-width: 500px; max-height: 1200px;vertical-align: middle;margin: 25px;border:solid azure 6px;border-radius: 4px;">
+                <div style="text-align: center;margin: 15px;">
+                {{wtf.quick_form(form)}}
+                <br>
+                {% if disp == True %}
+                <button  class="btn" style="background-color: #FF0000; color: azure;"><a href="/forgot_password" style="color: azure;">Forgot Password</a></button>
+                {% endif %}
+                {% if disp == False %}
+                <button  class="btn btn-lg" style="background-color: #FF0000; color: azure;"><a href="/login" style="color: azure;">Login</a></button>
+                {% endif %}
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

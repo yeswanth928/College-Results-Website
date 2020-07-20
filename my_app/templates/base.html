@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <!--This is the base template, many templates use this one. as their base-->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    </head>
+    <body>
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+              <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>                        
+                  </button>
+                <a class="navbar-brand" href="#">My College Results Site</a>
+              </div>
+              <div class="collapse navbar-collapse" id="myNavbar">
+              <ul class="nav navbar-nav navbar-right">
+                <li ><a href="/profile">Profile</a></li>
+                <!--Only if the user is an admin,the update option will be displayed.
+                By using jinja templates we can use the same base templates for both student and admin using various conditions. -->
+                {% if session['admin'] %}
+                <li ><a href="/update_page">Update Page</a></li>
+                {% endif %}
+                <li class="dropdown">
+                  <a class="dropdown-toggle" data-toggle="dropdown" href="#">Update
+                  <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="/update_pic">Update Profile Pic</a></li>
+                    <li><a href="/update_mail">Update Mail</a></li>
+                    <li><a href="/update_phone">Update Phone</a></li>
+                    <li><a href="/update_password">Update Password</a></li>
+                  </ul>
+                </li>
+                <!--Only if the user is a student , he will be able to look at the Results option.-->
+                {% if session['admin']==False %}
+                <li><a href="/select_sem">Results</a></li>
+                {% endif %}
+                <li><a href="/contact">Contact</a></li>
+                <li><a class="btn-sm btn-success" style="color: rgb(0, 95, 73);" href="/logout">Log out</a></li>
+              </ul>
+            </div>
+            </div>
+          </nav>
+        {% block body %}
+
+        {% endblock %}
+    </body>
+</html>

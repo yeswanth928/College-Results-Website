@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block body %}
+<h2 style="text-align: center;">Remove an User</h2>
+{% for category,message in get_flashed_messages(with_categories=True) %}
+    <div class="alert alert-{{category}}">
+        <strong>{{category|capitalize}}!</strong> {{message}}
+    </div>
+{% endfor %}
+<div class="container">
+<form action="/update_db_admin" method="POST">
+    <div class="form-group">
+        <label class="control-label col-sm-2" for="reg">Registration Number</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" name="reg">
+        </div>
+      </div>
+            <label><input type="radio" name="option" value="ADD">ADD</label> 
+            <label><input type="radio" name="option" value="DELETE">DELETE</label>
+      <div class="form-group">        
+        <div class="col-sm-offset-2 col-sm-10">
+          <button type="submit" class="btn btn-default btn-success">Submit</button>
+        </div>
+      </div>  
+</form>
+</div>
+{% endblock %}
