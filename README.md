@@ -53,7 +53,7 @@ Admin are also required to login to the website using their registration number 
 
 ### Demo
 
-![Alt Website Demo Video](/docs/demo.gif)
+![Alt Website Demo Video](/docs/Demo.gif)
 
 The GIF shows demo of 2 profiles. First an user interface and then an admin interface.
 
