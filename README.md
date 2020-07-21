@@ -14,6 +14,8 @@ This website also has an admin interface. Admin can view user profies and can ma
 
 * [Instalation](#Instalation)
 
+* [Project Structure](#Project-Structure)
+
 * [Usage](#Usage)
   * [For Students](#For-Students)
   * [For Admins](#For-Admins)
@@ -37,6 +39,25 @@ This website also has an admin interface. Admin can view user profies and can ma
 
 Before hosting the app, make sure the [configuration.cfg](/configuration.cfg) file is filled completly and correctly.
 And make sure python-3 is installed and all the required modules are installed. And an MySQL server is required. And run the [database.sql](/database.sql) script on the MySQL database server.
+
+## Project Structure
+
+```python
+  app.py
+  my_app
+    ├───admin
+    ├───main
+    ├───static
+    └───templates
+  ```
+
+* __admin__ folder contains the admin blueprint and classes and views related to admin blueprint.
+
+* __main__ folder contains the main blueprint and classes and view that are used by users and also for authentication.
+
+* __static__ folder contains uploads folder that is used to store temp files etc.
+
+* __templates__ folder contains all the HTML files used by both the admin and main view functions.
 
 ## Usage
 
